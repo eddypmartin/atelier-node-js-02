@@ -1,0 +1,95 @@
+
+main {
+
+
+width :  100%;
+margin :  0 auto;
+
+}
+
+.detruire a {
+
+
+	color :  #a00;
+
+}
+
+.detruire a:hover {
+
+	color:  #f00;
+}
+
+.sauver {
+
+
+	color :  #0a0;
+
+}
+
+.sauver:hover {
+	color:  #0f0;
+}
+
+/* Tableau section */
+
+.tableau {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableau .ligne {
+  display : flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tableau .ligne div  {
+  border : 1px dotted #ccc;
+  padding : 10px;
+}
+
+
+.tableau .ligne div a{
+  display :  block;
+}
+
+.tableau .ligne div:nth-child(1), 
+.tableau .ligne div:nth-child(2),
+.tableau .ligne div:nth-child(3)
+{
+ 	flex:  80px;
+ 	flex-grow: 0; 
+  	flex-shrink: 0; 
+} 
+
+.tableau .ligne div:nth-child(3)
+{
+	flex:  100px;
+ 	flex-grow: 0; 
+  	flex-shrink: 0;	
+}
+
+
+/* position _id */
+.tableau .ligne div:nth-child(4){
+	flex-grow: 1; 
+  	flex-shrink: 0; 
+}
+
+
+.tableau .ligne div:nth-child(5), 
+.tableau .ligne div:nth-child(6){
+ width:  20px;
+ flex-grow: 0; 
+ flex-shrink: 0; 
+} 
+
+@media(min-width:900px)
+{
+	main{
+		width :  900px;
+	}
+
+}
+
+

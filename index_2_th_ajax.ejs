@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon Application</title>
+  <script src="https://use.fontawesome.com/36edbc0fbb.js"></script>
+  <style type="text/css">
+    .adresse {
+      border-collapse: collapse;
+      margin: 20px; auto;
+      width : 700px;
+    }
+    .adresse td {
+      border : 1px dotted #aaa;
+      padding: 10px;
+    }
+
+    .adresse 
+
+  </style>
+</head>
+<body>
+  Node.js, Express et MongoDB.
+  <button id='update'>Mise à jour téléphone</button>
+  <form id='formulaire' action="/adresse" method="POST">
+    <input type="text" placeholder="nom" id='nom' name="nom">
+    <input type="text" placeholder="Telephone" id='telephone' name="telephone">
+    <input type="text" placeholder="_id" id='_id' name="_id"  value="">
+
+  </form>
+
+  <table class="adresse">
+  <tr>
+    <th>
+      <a href='http://localhost:8081/nom-desc'><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+      <a href='http://localhost:8081/nom-asc'>
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+    </th>
+    <th>
+      <a href='http://localhost:8081/telephone-desc'><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+      <a href='http://localhost:8081/telephone-asc'><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+    </th>
+    <th>
+      <a href='http://localhost:8081/_id-desc'>  
+      <i class="fa fa-chevron-left" aria-hidden="true"></i></a><a href='http://localhost:8081/_id-asc'><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+    </th>
+    <th></th>
+    <th id='ajouter'>
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </th>
+
+  </tr>
+
+  <% adresse.forEach(function(elm, i) {%>
+    <tr class="client">
+      <td contenteditable="true" class='nom'><%= elm.nom %></td>
+      <td contenteditable="true" class='telephone'><%= elm.telephone %></td>
+      <td class='_id'><%= elm._id %></td>
+      <td><a href=http://localhost:8081/detruire/<%= elm._id %>><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+    </td>
+    <td class="modifier"><i class="fa fa-floppy-o" aria-hidden="true"></i></td>
+    </tr>
+  <% }) %>
+
+  </table>
+</body>
+<script type="text/javascript">
+var elmLigne
+function addClickEvent()
+{
+  var elmModifier = document.querySelectorAll('.modifier');
+  //console.log(elmModifier.length)
+
+  [].forEach.call(elmModifier,function(elm){
+
+  elm.addEventListener('click', function(){
+    elmLigne = this.parentNode
+    console.log(elmLigne.tagName)
+     var data = {}
+
+    data['nom'] = 
+    elmLigne.getElementsByClassName('nom')[0].innerHTML
+
+    data['telephone'] = 
+    elmLigne.getElementsByClassName('telephone')[0].innerHTML
+
+    data["_id"] = 
+    elmLigne.getElementsByClassName('_id')[0].innerHTML
+  
+    xhr = new XMLHttpRequest();
+
+/* --------------------------------------------------  appel AJAX -- */
+xhr.open('POST', "sauver", true);
+sData = JSON.stringify(data);
+console.log(sData)
+xhr.setRequestHeader('Content-type', 'application/json');
+xhr.send(sData);
+xhr.addEventListener("readystatechange", traiterRequest.bind(elmLigne), false);
+
+  })
+})
+
+}  
+
+/////////////////////////////  Bouton ajouter
+
+var elmAjouter = document.getElementById('ajouter')
+elmAjouter.addEventListener('click', function(){
+var elmTableau = document.querySelector('.adresse')
+var row = elmTableau.insertRow(1);
+var elmNom = row.insertCell(0);
+elmNom.setAttribute("class", "nom");
+elmNom.setAttribute("contenteditable", "true");
+var elmTelephone = row.insertCell(1);
+elmTelephone.setAttribute("class", "telephone");
+elmTelephone.setAttribute("contenteditable", "true");
+var elm_id = row.insertCell(2);
+elm_id.setAttribute("class", "_id");
+var elmDelete = row.insertCell(3);
+elmDelete.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>'
+var elmUpdate = row.insertCell(4);
+elmUpdate.setAttribute("class", "modifier");
+elmUpdate.innerHTML = '<i class="fa fa-floppy-o" aria-hidden="true"></i>'
+
+/* permet d'ajouter un nouvel écouteur sur le nouveau
+bouton « modifier »
+*/
+addClickEvent()
+})
+
+addClickEvent()
+
+/*  ------------------------------------------------------------------   */
+var xhr;
+function traiterRequest(e)
+ {
+ console.log("xhr.readyState = " + xhr.readyState)
+ console.log("xhr.status = " + xhr.status)
+ if(xhr.readyState == 4 && xhr.status == 200)
+ {
+ console.log('ajax fonctionne')
+ var response = JSON.parse(xhr.responseText);
+ console.log("xhr.responseText = " + xhr.responseText);
+ this.getElementsByClassName('_id')[0].innerHTML
+ = response[0]._id
+ this.getElementsByClassName('_id')[0].style.backgroundColor = "#0f0"
+
+}
+ }
+
+
+
+
+
+</script>
+</html>

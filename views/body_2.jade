@@ -1,0 +1,17 @@
+body
+	.global
+		header
+			h1 #{titre}
+			include menu.jade
+		main
+			p #{message}
+			- if (data){
+				table
+					for elem in data
+						tr
+							td=elem.code
+							td=elem.nom
+							td=elem.capital	
+			- }
+		footer
+			p Atelier Node.js

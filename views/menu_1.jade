@@ -1,0 +1,17 @@
+- lien={}; lien[url.slice(1)]='actif';
+-
+	oMenu={"" : "acceuil",
+	"province" : "Province",
+	"tableau" : "Tableau",
+	"importer" : "Importer",
+	"formulaire": "Formulaire"}
+mixin gererLien(url,titre)
+	- if(lien[url]){
+	a(class="actif",href="#")|#{titre}
+	- }else{
+	a(href="http://#{domaine}/#{url}")|#{titre}
+	- }	
+nav.menu-principal
+	- for(p in oMenu){
+	+gererLien(p,oMenu[p])
+	- }

@@ -1,0 +1,29 @@
+- localeToggle = (oGlobal.locale=='fr'?'en':'fr')
+- urlToggle =  '/' + localeToggle + oGlobal.url.slice(3)
+- etiquetteToggle = (localeToggle=='fr'?'Français':'English')
+body
+	.global
+		header.entete
+			section
+				h1 #{__(oGlobal.titrePrincipal)}
+				a.langue(href="#{urlToggle}")|#{etiquetteToggle}
+			include menu.jade
+		main
+			p #{message}
+			- if (data){
+				table.tableau
+					tr
+						- for (p in data[0]){
+						th=p
+						- }	
+					for elem in data
+						tr
+							- for (p in elem){
+							td #{elem[p]}
+							- }
+			- }
+			- if (oGlobal.url.slice(3)=='/formulaire'){
+				include formulaire.jade
+			- }	
+		footer
+			p Atelier Node.js

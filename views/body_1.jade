@@ -1,0 +1,17 @@
+- lien={}; lien[url.slice(1)]='actif'
+body
+	.global
+		header
+			h1 #{titre}
+			nav.menu-principal
+				- if(lien['']){
+				a(class="actif",href="#")|Accueil
+				- }else{
+				a(href="http://#{domaine}")|Accueil
+				- }
+				a(class="#{lien['tableau']}", href="http://#{domaine}/tableau")|Tableau
+				a(class="#{lien['province']}",href="http://#{domaine}/province")|Province
+		main
+			p #{message}
+		footer
+			p Atelier Node.js

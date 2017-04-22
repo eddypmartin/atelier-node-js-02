@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://use.fontawesome.com/36edbc0fbb.js"></script>
+  <script type="text/javascript" src='script/ajax.js'></script>
+</head>
+<body>
+<main>
+  <section class="tableau">
+
+      <h2>Carnet d'adresse <%= adresse.length %></h2>
+      <div class='ligne entete'>
+            <div>Nom</div>
+            <div>Prénom</div>
+            <div>Téléphone</div>  
+            <div>_id</div>  
+            <div></div>
+            <div id="ajouter"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></div>   
+      </div>
+      <div class='contenu'>
+        <% adresse.forEach(function(elm, i) {%>
+          <div class="ligne">
+            <div class='nom' contenteditable='true'><%= elm.nom %></div>
+            <div class='prenom' contenteditable='true'><%= elm.prenom %></div>
+            <div class='telephone' contenteditable='true'><%= elm.telephone %></div>
+            <div class='_id' contenteditable='false'><%= elm._id %></div>
+            <div class='sauver'><i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i></div>
+            <div class='detruire'>
+              <a href="http://localhost:8081/detruire/<%= elm._id %>" >
+                <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div> <!-- fin class='ligne' -->
+        <% }) %> 
+      </div> <!-- fin class='contenu' -->
+  </section><!-- fin class='adresse' -->
+</main>
+  <script type="text/javascript"  src='script/client.js'></script>
+</body>
+</html>

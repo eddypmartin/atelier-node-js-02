@@ -1,0 +1,83 @@
+		[	
+			{
+			 "code": "NF" ,
+			 "nom" : "Terre-Neuve",
+			 "capital" : "St-john",
+			 "population" : "528000"
+			},
+			{
+			  "code": "IPE",
+			  "nom" : "Ile du Prince-Édouard ",
+			  "capital" : "Charlottetown",
+			  "population" : "148000"
+			},
+			{
+			  "code": "NS",
+			  "nom" : "Nouvelle Écosse",
+			  "capital" : "Halifax",
+			  "population" : "742000"
+
+			},			
+			{
+			  "code": "NB",
+			  "nom" : "Nouveau-Brunswick",
+			  "capital" : "Fredericton",
+			  "population" : "753000"
+			},
+			{
+			"code": "QC",  
+			"nom" : "Québec",
+			"capital" : "Québec",
+			"population" : "8000000"
+			},
+	 		{
+			"code": "ON", 
+			"nom" : "Ontario",
+			"capital" : "Toronto",
+			"population" : "13000000"
+			},
+	 		{
+			"code": "MA", 
+			"nom" : "Manitoba",
+			"capital" : "Winipeg",
+			"population" : "1200000"
+			},
+	 		{
+			"code": "SK", 
+			"nom" : "Saskatshewan",
+			"capital" : "Regina",
+			"population" : "1100000"
+			},
+	 		{
+			"code": "AL", 
+			"nom" : "Alberta",
+			"capital" : "Edmonton",
+			"population" : "4000000"
+			},
+			{
+			  "code": "BC",
+			  "nom" : "Colombie Britannique",
+			  "capital" : "Victoria",
+			  "population" : "4600000"
+			},
+			{
+			  "code": "NU",
+			  "nom" : "Nunavut",
+			  "capital" : "Igaluit",
+			  "population" : "37000"
+			},
+			{
+			  "code": "YT",
+			  "nom" : "Yukon",
+			  "capital" : "Whitehorse",
+			  "population" : "38000"
+			},
+			{
+			  "code": "NT",
+			  "nom" : "Territoire du Nord-Ouest",
+			  "capital" : "Yellowknife",
+			  "population" : "44000"
+			}
+
+		]	
+

@@ -1,0 +1,10 @@
+- lien={}; lien[oGlobal.url.slice(4)]='actif';
+mixin gererLien(url,titre)
+	- if(lien[url]){
+	a(class="actif",href="#")|#{__(titre)}
+	- }else{
+	a(href="http://#{oGlobal.domaine}/#{oGlobal.locale}/#{url}")|#{__(titre)}
+	- }	
+nav.menu-principal
+	for elm in oGlobal.oMenu
+		+gererLien(elm,elm)
